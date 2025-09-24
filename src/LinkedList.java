@@ -1,33 +1,18 @@
-public class LinkedList {
-    private class Node{
-        private IDedObject.AnyType obj;
-        private Node next;
+public class LinkedList<AnyType extends IDedObject> {
+    private class Node<AnyType>{
+        private AnyType obj;
+        private Node<AnyType> next;
 
-        public Node(IDedObject.AnyType o){
-            obj = o;
-            next = null;
-        }
-        public Node(IDedObject.AnyType o, Node n){
+        public Node(AnyType o, Node<AnyType> n){
             obj = o;
             next = n;
         }
-
-        public IDedObject.AnyType getObj() {
-            return obj;
-        }
-        public Node getNext() {
-            return next;
-        }
-
-        public void setObj(IDedObject.AnyType obj) {
-            this.obj = obj;
-        }
-        public void setNext(Node next) {
-            this.next = next;
-        }
     }
 
-    Node head;
+    Node<AnyType> head;
+    public LinkedList(){
+        head = null;
+    }
 
     /**
      *  empties the linked list
@@ -43,8 +28,8 @@ public class LinkedList {
      *  returns AnyType with same ID
      *  returns null, if not found
      * */
-    IDedObject.AnyType findID(int ID){
-        Node cur = head;
+    AnyType findID(int ID){
+        Node<AnyType> cur = head;
         while(cur!=null){
             if(cur.obj.getID() == ID){
                 return cur.obj;
@@ -59,10 +44,10 @@ public class LinkedList {
      *  if:  has same Anytype obj, return false;
      *  if not, make a new node with Anytype obj and returns true;
      * */
-    boolean insertAtFront(IDedObject.AnyType x){
+    boolean insertAtFront(AnyType x){
         if(findID(x.getID()) != null) return false;
 
-        head = new Node(x, head);
+        head = new Node<>(x, head);
         return true;
     }
 
@@ -72,12 +57,12 @@ public class LinkedList {
      *  if not, capture current head and set head's next to new head
      *  return old head;
      * */
-    IDedObject.AnyType deleteFromFront(){
+    AnyType deleteFromFront(){
         if(head == null) return null;
 
-        Node cur = head;
+        Node<AnyType> cur = head;
         head = head.next;
-        return cur.getObj();
+        return cur.obj;
     }
 
     /**
@@ -86,15 +71,15 @@ public class LinkedList {
      *      return node's AnyType obj
      *  if not found, return null
      * */
-    IDedObject.AnyType delete(int ID){
+    AnyType delete(int ID){
         //Check head first
         if(head.obj.getID() == ID){
             return deleteFromFront();
         }
 
         // continue
-        Node prev = head;
-        Node cur = head.next;
+        Node<AnyType> prev = head;
+        Node<AnyType> cur = head.next;
         while(cur != null){
             if(cur.obj.getID() == ID){
                 prev.next = cur.next;
@@ -113,7 +98,7 @@ public class LinkedList {
     void printAllRecords(){
         if(head == null) System.out.println("This list is Empty!");
 
-        Node cur = head;
+        Node<AnyType> cur = head;
         while(cur != null){
             cur.obj.printID();
             System.out.println();

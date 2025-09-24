@@ -2,15 +2,6 @@ public interface IDedObject {
     int getID();
     void printID();
 
-    /**
-    Design a java class Product that implements IDedObject interface and has the following class variables:
-    int productID
-    String productName
-    String supplierName
-    Implement suitable constructors, a printID function that prints all the variable values in separate lines and getID() function that returns the productID.  Add any access and other functions necessary.
-    {Note all your data should be private and methods public inside the class)
-    */
-
     class Product implements IDedObject{
         private int productID;
         private String productName;
@@ -54,39 +45,4 @@ public interface IDedObject {
 
         }
     }
-
-    // Implementation of AnyType
-    /**
-     * This AnyType should implement IDedObject.
-     * You have to design your own class that does not use any other
-     * Java collection ApI
-     * **/
-    class AnyType implements IDedObject{
-        private int id;
-        private Object obj;
-
-
-        /** Getters **/
-        @Override
-        public int getID(){
-            return id;
-        }
-        public Object getObj(){
-            return obj;
-        }
-
-        /** Setters **/
-        public void setID(int id) {
-            this.id = id;
-        }
-        public void setObj(Object o) {
-            this.obj = o;
-        }
-
-        @Override
-        public void printID(){
-            System.out.println(id);
-        }
-    }
-
 }
