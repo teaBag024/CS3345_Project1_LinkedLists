@@ -1,10 +1,8 @@
-import java.awt.desktop.SystemEventListener;
 import java.util.Scanner;
-
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+        LinkedList<IDedObject.Product> list = new LinkedList<IDedObject.Product>();
 
         boolean flag = true;
         Scanner in = new Scanner(System.in);
@@ -33,7 +31,7 @@ public class Main {
                     userInput = in.nextLine();
                     id = intParse(userInput);
 
-                    p = (IDedObject.Product) list.findID(id);
+                    p = list.findID(id);
                     if(p == null) System.out.println("Not in our System :(");
                     else p.printID();
 
@@ -60,7 +58,7 @@ public class Main {
                     break;
                 case 4:
                     //Delete at front
-                    p = (IDedObject.Product) list.deleteFromFront();
+                    p = list.deleteFromFront();
                     if(p == null) System.out.println("List is empty");
                     else p.printID();
 
@@ -98,8 +96,7 @@ public class Main {
      * */
     private static int intParse(String s){
         try{
-            int i = Integer.parseInt(s);
-            return i;
+            return Integer.parseInt(s);
         }catch (NumberFormatException e){
             System.out.println("Invalid Input!");
             return -1;

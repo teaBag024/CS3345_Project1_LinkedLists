@@ -19,23 +19,6 @@ public interface IDedObject {
         public int getID() {
             return productID;
         }
-        public String getProductName() {
-            return productName;
-        }
-        public String getSupplierName(){
-            return supplierName;
-        }
-
-        /** Setters **/
-        public void setID(int id){
-            productID = id;
-        }
-        public void setProductName(String s){
-            productName = s;
-        }
-        public void setSupplierName(String s){
-            supplierName = s;
-        }
 
         @Override
         public void printID(){
