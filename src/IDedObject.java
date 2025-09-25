@@ -14,7 +14,7 @@ public interface IDedObject {
             supplierName = s;
         }
 
-        /** Getters **/
+        /** Override Functions **/
         @Override
         public int getID() {
             return productID;

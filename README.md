@@ -1,7 +1,7 @@
 ## Project 1 - Linked Lists        Due: 09/30/2025
 ### CS 3345 - Data Structures and Algorithms
 
-(Using IntelliJ)
+> This project is using IntelliJ
 
 + Creating a Linked List without other Java Collection Object.
 + Designs an Interface with abstract functions.      - IDedObject
